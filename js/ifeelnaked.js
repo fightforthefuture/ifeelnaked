@@ -1,6 +1,7 @@
 $(function() { /////////////////////////////////////////////////////////////////
 
 $('a.post').smoothScroll();
+$('a.participate').smoothScroll();
 
 var container = $('#photos').isotope({
     itemSelector: '.element-item',
