@@ -12,13 +12,18 @@ var container = $('#photos').isotope({
 });
 
 var addItem = function(item) {
+
+    if (document.getElementById(item.username+'_'+item._id))
+        return;
+
     var img = new Image();
     img.onload = function() {
         var div = document.createElement('div');
-        if (item.priority > 1)
+        if (item.priority > 0)
             div.className = 'element-item big';
         else
             div.className = 'element-item';
+        div.id = item.username+'_'+item._id;
         div.style.backgroundImage = 'url('+item.photo_url_s3+')';
         div.style.backgroundSize = '100% 100%';
 
@@ -29,11 +34,17 @@ var addItem = function(item) {
 
 var addItems = function(items) {
     
-    for (var i=0; i<items.length; i++) {
+    for (var i=0; i<items.length; i++)
         addItem(items[i]);
-    }
 }
 
+$.ajax('http://ifeelnaked-api.herokuapp.com/random/30', {
+    success: function(data) {
+        addItems(data)
+    }
+});
+
+/*
 addItems([
     {
         photo_url_s3: 'https://images.ifeelnaked.org/photos/954574647314666545_13219660.jpg',
@@ -126,6 +137,7 @@ addItems([
         priority: 1
     },
 ]);
+*/
 
 //var $newItems = $('<div class="element-item" /><div class="element-item" /><div class="element-item" />');
 //$('#photos').isotope( 'insert', $newItems );
