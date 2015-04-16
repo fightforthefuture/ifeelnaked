@@ -39,9 +39,8 @@ a.post {
     display: block;
     position: absolute;
     right: 0px;
-    top: 50%;
+    top: 500px;
     height: 85px;
-    margin-top: -42px;
     line-height: 85px;
     text-transform: uppercase;
     text-decoration: none;
