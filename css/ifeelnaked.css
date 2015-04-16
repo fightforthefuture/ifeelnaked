@@ -37,9 +37,9 @@ a {
 }
 a.post {
     display: block;
-    position: absolute;
+    position: fixed;
     right: 0px;
-    top: 500px;
+    bottom: 0px;
     height: 85px;
     line-height: 85px;
     text-transform: uppercase;
