@@ -27,6 +27,10 @@ var addItem = function(item) {
         div.style.backgroundImage = 'url('+item.photo_url_s3+')';
         div.style.backgroundSize = '100% 100%';
 
+        div.addEventListener('click', function() {
+            console.log(item)
+        }, false);
+
         $('#photos').isotope( 'insert', div );
     }
     img.src = item.photo_url_s3;
