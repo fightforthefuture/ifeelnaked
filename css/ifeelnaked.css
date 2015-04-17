@@ -31,6 +31,7 @@ body {
     font-family: "ff-meta-serif-web-pro";
     padding: 0 0px 60px;
     color: #242424;
+    height: 100%;
 }
 a {
     color: black;
@@ -173,7 +174,7 @@ footer img {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0, 0, 0, .66);
     display: none;
     z-index: 9001;
 
@@ -200,27 +201,131 @@ footer img {
 }
 .overlay .gutter .modal {
     display: inline-block;
-    max-width: 600px;
-    background: white;
+    max-width: 100%;
     color: black;
     margin: 0px auto;
-    padding: 20px;
     position: relative;
     text-align: center;
 
-    margin-top: 50px;
-    border-radius: 10px;
-    /*
+    margin-top: 15px;
+    box-shadow: 0px 2px 20px rgba(0, 0, 0, .3);
+}
+
+.modal.photo div.photo {
+    display: block;
+    position: relative;
+    width: 320px;
+    height: 320px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-right-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    border-top-left-radius: 10px;
+}
+.modal.photo .tweet {
+    background: white;
+    position: relative;
+    width: 320px;
+    padding: 10px 15px 10px 80px;
+    min-height: 71px;
     -webkit-border-bottom-right-radius: 10px;
     -moz-border-radius-bottomright: 10px;
     border-bottom-right-radius: 10px;
     -webkit-border-bottom-left-radius: 10px;
     -moz-border-radius-bottomleft: 10px;
     border-bottom-left-radius: 10px;
-    */
+    line-height: 21px;
+    text-align: left;
+}
+.modal.photo .tweet:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+.modal.photo .tweet a {
+    font-weight: bold;
+    color: #4993cc;
+}
+.modal.photo .tweet a.avatar {
+    position: absolute;
+    left: 15px;
+    top: 13px;
+}
+.modal.photo .tweet a.avatar img {
+    width: 48px;
+    height: 48px;
+}
+.modal a.close {
+    position: absolute;
+    right: 7px;
+    top: 6px;
+    cursor:pointer;
+    color: #fff;
+    border-radius: 30px;
+    background: black;
+    font-size: 31px;
+    font-weight: bold;
+    display: inline-block;
+    line-height: 35px;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    text-decoration: none;
+    opacity: .7;
+    z-index: 9002; /* A LEVEL BEYOND over 9000 */
+}
+.modal a.close:hover {
+    opacity: 1;
+}
+.modal a.close:before {
+    line-height: 35px;
+    content: "×";
+}
 
-    box-shadow: 0px 2px 20px rgba(0, 0, 0, .3);
-
+@media screen and (min-height: 550px) {
+    .overlay .gutter .modal {
+        margin-top: 20px;
+    }
+    .modal.photo div.photo {
+        width: 400px;
+        height: 400px;
+    }
+    .modal.photo .tweet {
+        width: 400px;
+    }
+}
+@media screen and (min-height: 650px) {
+    .overlay .gutter .modal {
+        margin-top: 25px;
+    }
+    .modal.photo div.photo {
+        width: 500px;
+        height: 500px;
+    }
+    .modal.photo .tweet {
+        width: 500px;
+    }
+}
+@media screen and (min-height: 800px) {
+    .overlay .gutter .modal {
+        margin-top: 50px;
+    }
+    .modal.photo div.photo {
+        width: 640px;
+        height: 640px;
+    }
+    .modal.photo .tweet {
+        width: 640px;
+    }
+}
+@media screen and (max-width: 600px) {
+    .overlay .gutter .modal {
+        margin-top: 0px;
+    }
+    .modal.photo div.photo {
+        border-radius: 0px;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -244,6 +349,16 @@ footer img {
         height: 150px;
         width: 150px;
     }
+    a.post {
+        height: 40px;
+        line-height: 40px;
+        width: 100%;
+        padding: 0px;
+        text-align: center;
+        background-position: 10px 7px;
+        background-size: auto 25px;
+    }
+
 }
 
 div.social-buttons {
