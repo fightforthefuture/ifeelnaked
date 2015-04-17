@@ -158,11 +158,27 @@ footer img {
     cursor: pointer;
 }
 .isotope .element-item:hover {
-    -moz-transform: scale(1.03);
-    -webkit-transform: scale(1.03);
-    -o-transform: scale(1.03);
-    transform: scale(1.03);
-    -ms-transform: scale(1.03);
+    -moz-transform: scale(1.015);
+    -webkit-transform: scale(1.015);
+    -o-transform: scale(1.015);
+    transform: scale(1.015);
+    -ms-transform: scale(1.015);
+}
+.isotope .element-item > div {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    bottom: 10px;
+    background: #1c1c1c;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 2px 0px;
+    width: 105px;
+    letter-spacing: 1px;
+    text-align: center;
+    font-family: arial;
+
 }
 
 .isotope .element-item.big { width: 310px; height: 310px; }
