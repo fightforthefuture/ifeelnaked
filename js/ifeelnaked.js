@@ -33,9 +33,9 @@ var addItem = function(item) {
 }
 
 var addItems = function(items) {
-    
-    for (var i=0; i<items.length; i++)
+    for (var i=0; i < items.length; i++) {
         addItem(items[i]);
+    }
 }
 
 $.ajax('http://ifeelnaked-api.herokuapp.com/random/30', {

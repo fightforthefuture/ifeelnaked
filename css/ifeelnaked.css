@@ -117,6 +117,10 @@ section#participate blockquote {
     background: #ccc;
     font-family: 'Courier New';
     margin-bottom: 60px;
+    text-align: left;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    max-width: 100%;
 }
 
 footer {
