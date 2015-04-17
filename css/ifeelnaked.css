@@ -174,3 +174,46 @@ footer img {
         width: 246px;
     }
 }
+
+div.social-buttons {
+    height: 115px;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    top: calc((100% - 115px) / 2);
+    width: 110px;
+}
+
+@media screen and (max-width: 1280px) {
+    div.social-buttons {
+        width: 33px;
+    }
+}
+
+div.social-buttons a {
+    background-repeat: no-repeat;
+    display: block;
+    height: 33px;
+    font-family: Arial, sans-serif;
+    color: white;
+    line-height: 33px;
+    margin: 0 0 8px;
+    padding: 0 0 0 42px;
+    text-decoration: none;
+    width: 100%;
+}
+
+div.social-buttons a.facebook {
+    background-color: #39579a;
+    background-image: url(../images/social/icon-fb.gif);
+}
+
+div.social-buttons a.twitter {
+    background-color: #02aced;
+    background-image: url(../images/social/icon-twitter.gif);
+}
+
+div.social-buttons a.email {
+    background-color: #14ac2b;
+    background-image: url(../images/social/icon-email.gif);
+}
