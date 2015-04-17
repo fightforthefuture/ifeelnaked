@@ -243,8 +243,8 @@ footer img {
     background: white;
     position: relative;
     width: 320px;
-    padding: 10px 15px 10px 80px;
-    min-height: 71px;
+    padding: 12px 15px 12px 80px;
+    min-height: 75px;
     -webkit-border-bottom-right-radius: 10px;
     -moz-border-radius-bottomright: 10px;
     border-bottom-right-radius: 10px;
@@ -266,7 +266,7 @@ footer img {
 .modal.photo .tweet a.avatar {
     position: absolute;
     left: 15px;
-    top: 13px;
+    top: 15px;
 }
 .modal.photo .tweet a.avatar img {
     width: 48px;
