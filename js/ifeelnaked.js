@@ -1,5 +1,32 @@
 $(function() { /////////////////////////////////////////////////////////////////
 
+var creeps = [
+    {
+        image: 'rogers_crop.jpg',
+        label: 'backdoor access'
+    },
+    {
+        image: 'obama_crop.jpg',
+        label: 'i\'m listening'
+    },
+    {
+        image: 'feinstein_crop.jpg',
+        label: 'i\'m watching'
+    },
+    {
+        image: 'clapper_crop.jpg',
+        label: 'nice metadata :)'
+    },
+    {
+        image: 'comey_crop.jpg',
+        label: 'nothing to hide?'
+    },
+    {
+        image: 'clinton_crop.jpg',
+        label: 'let me watch, too!'
+    },
+]
+
 $('a.post').smoothScroll();
 $('a.participate').smoothScroll();
 
@@ -24,16 +51,49 @@ var addItem = function(item) {
         else
             div.className = 'element-item';
         div.id = item.username+'_'+item._id;
-        div.style.backgroundImage = 'url('+item.photo_url_s3+')';
-        div.style.backgroundSize = '100% 100%';
 
-        div.addEventListener('click', function() {
+        var flipper = document.createElement('div');
+        flipper.className = 'flipper';
+
+        var front = document.createElement('div');
+        front.className = 'front';
+        front.style.backgroundImage = 'url('+item.photo_url_s3+')';
+        front.style.backgroundSize = '100% 100%';
+
+        var creep = creeps[Math.floor(Math.random() * creeps.length)];
+
+        var back = document.createElement('div');
+        back.className = 'back';
+        back.style.backgroundImage = 'url(images/gov/'+creep.image+')';
+        back.style.backgroundSize = '100% 100%';
+
+        var caption = document.createElement('div');
+        caption.className = 'label';
+        label = document.createElement('p');
+        label.textContent = creep.label;
+        caption.appendChild(label);
+        back.appendChild(caption);
+
+        var caption = document.createElement('div');
+        caption.className = 'label';
+        label = document.createElement('p');
+        label.textContent = '#ifeelnaked';
+        caption.appendChild(label);
+        front.appendChild(caption);
+
+        flipper.appendChild(front);
+        flipper.appendChild(back);
+        div.appendChild(flipper);
+
+        div.addEventListener('click', function(e) {
             showModal(item);
         }, false);
 
-        var caption = document.createElement('div');
-        caption.textContent = '#ifeelnaked';
-        div.appendChild(caption);
+        div.addEventListener('mouseleave', function(e) {
+            $(div).toggleClass('flipped');
+        }, false);
+
+        
 
         $('#photos').isotope( 'insert', div );
     }
