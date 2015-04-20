@@ -15,7 +15,7 @@ var creeps = [
     },
     {
         image: 'clapper_crop.jpg',
-        label: 'nice metadata :)'
+        label: 'nice metadata.'
     },
     {
         image: 'comey_crop.jpg',
@@ -24,6 +24,10 @@ var creeps = [
     {
         image: 'clinton_crop.jpg',
         label: 'let me watch, too!'
+    },
+    {
+        image: 'rogers2_crop.jpg',
+        label: 'i miss your texts :('
     },
 ]
 
