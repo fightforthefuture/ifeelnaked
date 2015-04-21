@@ -1,5 +1,6 @@
 $(function() { /////////////////////////////////////////////////////////////////
 
+/*
 var creeps = [
     {
         image: 'rogers_crop.jpg',
@@ -30,9 +31,7 @@ var creeps = [
         label: 'i miss your texts :('
     },
 ]
-
-$('a.post').smoothScroll();
-$('a.participate').smoothScroll();
+*/
 
 var container = $('#photos').isotope({
     itemSelector: '.element-item',
@@ -64,6 +63,7 @@ var addItem = function(item) {
         front.style.backgroundImage = 'url('+item.photo_url_s3+')';
         front.style.backgroundSize = '100% 100%';
 
+        /*
         var creep = creeps[Math.floor(Math.random() * creeps.length)];
 
         var back = document.createElement('div');
@@ -77,6 +77,7 @@ var addItem = function(item) {
         label.textContent = creep.label;
         caption.appendChild(label);
         back.appendChild(caption);
+        */
 
         var caption = document.createElement('div');
         caption.className = 'label';
@@ -86,17 +87,18 @@ var addItem = function(item) {
         front.appendChild(caption);
 
         flipper.appendChild(front);
-        flipper.appendChild(back);
+        // flipper.appendChild(back);
         div.appendChild(flipper);
 
         div.addEventListener('click', function(e) {
             showModal(item);
         }, false);
 
+        /*
         div.addEventListener('mouseleave', function(e) {
             $(div).toggleClass('flipped');
         }, false);
-
+        */
         
 
         $('#photos').isotope( 'insert', div );
@@ -190,6 +192,38 @@ $.ajax('http://ifeelnaked-api.herokuapp.com/random/30', {
     success: function(data) {
         addItems(data)
     }
+});
+
+var show_modal = function(el) {
+    var overlay = document.getElementById(el);
+    overlay.style.display = 'block';
+    setTimeout(function() { overlay.className = 'overlay'; }, 10);
+}
+
+var hide_modal = function(el) {
+    var overlay = document.getElementById(el);
+    overlay.className = 'overlay invisible';
+    setTimeout(function() { overlay.style.display = 'none'; }, 400);
+}
+
+document.querySelector('.close.lite').addEventListener('click', function(e) {
+    e.preventDefault();
+    hide_modal("participate_modal");
+}, false);
+
+document.querySelector('#participate_modal button').addEventListener('click', function(e) {
+    e.preventDefault();
+    hide_modal("participate_modal");
+}, false);
+
+document.querySelector('a.post').addEventListener('click', function(e) {
+    e.preventDefault();
+    show_modal("participate_modal");
+});
+
+document.querySelector('a.participate').addEventListener('click', function(e) {
+    e.preventDefault();
+    show_modal("participate_modal");
 });
 
 }); ////////////////////////////////////////////////////////////////////////////

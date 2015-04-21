@@ -38,9 +38,9 @@ a {
 }
 a.post {
     display: block;
-    position: fixed;
+    position: absolute;
     right: 0px;
-    bottom: 0px;
+    top: 500px;
     height: 85px;
     line-height: 85px;
     text-transform: uppercase;
@@ -335,6 +335,90 @@ footer img {
     line-height: 35px;
     content: "×";
 }
+.modal a.close.lite {
+    color: #e1e1e1;
+    font-size: 40px;
+    opacity: 1;
+    background: #fff;
+    font-weight: bold;
+}
+.modal a.close.lite:hover {
+    color: #ccc;
+}
+.modal .explanation {
+    background: #fff;
+    padding: 55px 0px 0px 0px;
+    font-family: "open-sans";
+    font-size: 22.42px;
+    line-height: 29px;
+    max-width: 745px;
+}
+.modal .explanation p {
+    margin: 0px;
+    padding: 0px 35px 35px 35px;
+}
+.modal .explanation .example {
+    background: #ededed url(../images/modal_background.png) left top repeat-x;
+    padding: 20px 15px 25px 15px;
+    font-size: 17px;
+    color: #686868;
+}
+.modal .explanation .example .tweet {
+    margin: 5px auto 20px auto;
+    max-width: 575px;
+    border-radius: 10px;
+    background: #fff;
+    padding: 25px 25px 0px 25px;
+    font-size: 19px;
+    color: #676767;
+    text-align: left;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, .1);
+}
+.modal .explanation .example .tweet em {
+    color: #66d6ff;
+    font-weight: bold;
+}
+.modal .explanation .example .tweet span {
+    text-decoration: underline;
+}
+.modal .explanation .example .tweet .byline {
+    color: #cfcfd0;
+    font-size: 10px;
+    padding-bottom: 5px;
+    margin: 0px 0px 0px 0px;
+}
+.modal .explanation .example button {
+    border: 0px;
+    background: #fe4b60;
+    height: 58px;
+    line-height: 56px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: "open-sans";
+    color: white;
+    font-weight: bold;
+    font-size: 19px;
+    text-align: center;
+    width: 226px;
+    cursor: pointer;
+}
+.modal .explanation .example button:hover {
+    background: #ee3b50;
+}
+@media screen and (max-width: 480px) {
+    .modal .explanation {
+        font-size: 18px;
+        padding-top: 45px;
+        line-height: 24px;
+    }
+    .modal .explanation p {
+        padding: 0px 15px 25px 15px;
+    }
+    .modal .explanation .example .tweet {
+        font-size: 15px;
+        padding: 15px 15px 0px 15px;
+    }
+}
 
 @media screen and (min-height: 550px) {
     .overlay .gutter .modal {
@@ -393,7 +477,7 @@ footer img {
         float: left;
         height: 150px;
         margin: 5px;
-        padding: 10px;
+        padding: 0px;
         position: relative;
         width: 150px;
     }
@@ -410,6 +494,9 @@ footer img {
         text-align: center;
         background-position: 10px 7px;
         background-size: auto 25px;
+        position: fixed;
+        bottom: 0px;
+        top: auto;
     }
 
 }
