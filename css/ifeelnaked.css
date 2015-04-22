@@ -138,6 +138,7 @@ footer img {
 #photos {
     margin: 0px auto 25px auto;
     max-width: 800px;
+    text-align: center;
 }
 
 .isotope:after {
@@ -467,7 +468,7 @@ footer img {
 
 @media screen and (max-width: 480px) {
     #photos {
-        max-width: 100%;
+        max-width: 320px;
     }
 
     .isotope .element-item {
