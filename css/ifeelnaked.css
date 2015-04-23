@@ -494,6 +494,9 @@ footer img {
         height: 150px;
         width: 150px;
     }
+    .isotope .element-item .caption {
+        display: none;
+    }
     a.post {
         height: 40px;
         line-height: 40px;
