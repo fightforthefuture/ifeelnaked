@@ -34,7 +34,10 @@ body {
     height: 100%;
 }
 a {
-    color: black;
+    color: #444;
+}
+a:hover {
+    color: #111;
 }
 a.post {
     display: block;
@@ -94,7 +97,7 @@ section#top p {
     margin: 40px auto;
     font-size: 16px;
     line-height: 25px;
-    max-width: 600px;
+    max-width: 620px;
 }
 section#participate a.social_logo {
     opacity: .8;
@@ -157,6 +160,24 @@ footer img {
     border-radius: 10px;
     cursor: pointer;
 }
+.isotope .element-item.evil {
+    background-color: #ff8082;
+    background-blend-mode: multiply;
+    -moz-background-blend-mode: multiply;
+    -webkit-background-blend-mode: multiply;
+}
+.isotope .element-item.good {
+    background-color: #5b678a;
+    background-blend-mode: multiply;
+    -moz-background-blend-mode: multiply;
+    -webkit-background-blend-mode: multiply;
+}
+.isotope .element-item.black_and_white {
+    -moz-filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}
+
 .isotope .element-item:hover {
     -moz-transform: scale(1.015);
     -webkit-transform: scale(1.015);
@@ -164,6 +185,7 @@ footer img {
     transform: scale(1.015);
     -ms-transform: scale(1.015);
 }
+
 .isotope .element-item div.label {
     position: absolute;
     left: 0px;
@@ -183,43 +205,28 @@ footer img {
     letter-spacing: 1px;
     font-family: arial;
 }
+.isotope .element-item div.caption {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding: 25px 20px;
+    color: white;
+    line-height: 22px;
+    font-size: 16px;
+    text-shadow: 0px 0px 2px black;
+}
+.isotope .element-item div.caption a {
+    font-weight: bold;
+    color: white;
+    opacity: .85;
+}
+.isotope .element-item div.caption a:hover {
+    opacity: 1;
+}
 .isotope .element-item.big { width: 310px; height: 310px; }
 
-.isotope .element-item {
-    perspective: 1000;
-}
-.isotope .element-item.flipped .flipper {
-    transform: rotateY(180deg);
-}
-.isotope .element-item .flipper {
-    width: 100%;
-    height: 100%;
-    transition: 0.6s;
-    transform-style: preserve-3d;
 
-    position: relative;
-}
-
-.isotope .element-item .front {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    backface-visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    /* for firefox 31 */
-    transform: rotateY(0deg);
-}
-
-.isotope .element-item .back {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    backface-visibility: hidden;
-    transform: rotateY(180deg);
-}
 
 .overlay {
     position: fixed;
@@ -544,3 +551,5 @@ div.social-buttons a.email {
     background-color: #14ac2b;
     background-image: url(../images/social/icon-email.gif);
 }
+
+#static_images { display: none; }

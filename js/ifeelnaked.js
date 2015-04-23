@@ -1,37 +1,10 @@
 $(function() { /////////////////////////////////////////////////////////////////
 
-/*
-var creeps = [
-    {
-        image: 'rogers_crop.jpg',
-        label: 'backdoor access'
-    },
-    {
-        image: 'obama_crop.jpg',
-        label: 'i\'m listening'
-    },
-    {
-        image: 'feinstein_crop.jpg',
-        label: 'i\'m watching'
-    },
-    {
-        image: 'clapper_crop.jpg',
-        label: 'nice metadata.'
-    },
-    {
-        image: 'comey_crop.jpg',
-        label: 'nothing to hide?'
-    },
-    {
-        image: 'clinton_crop.jpg',
-        label: 'let me watch, too!'
-    },
-    {
-        image: 'rogers2_crop.jpg',
-        label: 'i miss your texts :('
-    },
-]
-*/
+var STATIC_PHOTO_DENSITY = 10;
+
+var processed = 0;
+var staticIndex = 0;
+staticImages = document.querySelectorAll('#static_images > div');
 
 var container = $('#photos').isotope({
     itemSelector: '.element-item',
@@ -50,58 +23,34 @@ var addItem = function(item) {
     img.onload = function() {
         var div = document.createElement('div');
         if (item.priority > 0)
-            div.className = 'element-item big';
+            div.className = 'element-item black_and_white big';
         else
-            div.className = 'element-item';
+            div.className = 'element-item black_and_white';
         div.id = item.username+'_'+item._id;
-
-        var flipper = document.createElement('div');
-        flipper.className = 'flipper';
-
-        var front = document.createElement('div');
-        front.className = 'front';
-        front.style.backgroundImage = 'url('+item.photo_url_s3+')';
-        front.style.backgroundSize = '100% 100%';
-
-        /*
-        var creep = creeps[Math.floor(Math.random() * creeps.length)];
-
-        var back = document.createElement('div');
-        back.className = 'back';
-        back.style.backgroundImage = 'url(images/gov/'+creep.image+')';
-        back.style.backgroundSize = '100% 100%';
-
-        var caption = document.createElement('div');
-        caption.className = 'label';
-        label = document.createElement('p');
-        label.textContent = creep.label;
-        caption.appendChild(label);
-        back.appendChild(caption);
-        */
+        div.style.backgroundImage = 'url('+item.photo_url_s3+')';
+        div.style.backgroundSize = '100% 100%';
 
         var caption = document.createElement('div');
         caption.className = 'label';
         label = document.createElement('p');
         label.textContent = '#ifeelnaked';
         caption.appendChild(label);
-        front.appendChild(caption);
-
-        flipper.appendChild(front);
-        // flipper.appendChild(back);
-        div.appendChild(flipper);
+        div.appendChild(caption);
 
         div.addEventListener('click', function(e) {
             showModal(item);
         }, false);
 
-        /*
-        div.addEventListener('mouseleave', function(e) {
-            $(div).toggleClass('flipped');
-        }, false);
-        */
-        
+        if (processed % STATIC_PHOTO_DENSITY == 0)
+            addStatic();
 
         $('#photos').isotope( 'insert', div );
+
+        
+
+
+
+        processed++;
     }
     img.src = item.photo_url_s3;
 }
@@ -194,10 +143,43 @@ $.ajax('http://ifeelnaked-api.herokuapp.com/random/30', {
     }
 });
 
+var addStatic = function() {
+    console.log('adding static: ', processed);
+  
+
+    if (staticIndex == staticImages.length)
+        return false;
+
+    var img = staticImages[staticIndex];
+    var bgImg = img.querySelector('img');
+    var p = img.querySelector('p');
+    var a = img.querySelector('a');
+
+    var div = document.createElement('div');
+    div.className = 'element-item big '+img.className;
+    div.id = 'static_'+staticIndex;
+    div.style.backgroundImage = 'url('+bgImg.src+')';
+    div.style.backgroundSize = '100% 100%';
+
+    var caption = document.createElement('div');
+    caption.className = 'caption';
+    caption.innerHTML = p.innerHTML;
+    div.appendChild(caption);
+        
+    div.addEventListener('click', function(e) {
+        window.open(a.href);
+    }, false);
+
+
+    $('#photos').isotope( 'insert', div );
+
+    staticIndex++;
+}
+
 var show_modal = function(el) {
     var overlay = document.getElementById(el);
     overlay.style.display = 'block';
-    setTimeout(function() { overlay.className = 'overlay'; }, 10);
+    setTimeout(function() { overlay.className = 'overlay'; }, 30);
 }
 
 var hide_modal = function(el) {
