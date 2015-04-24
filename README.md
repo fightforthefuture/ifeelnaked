@@ -1,5 +1,5 @@
-#ifeelnaked
------------
+ #ifeelnaked
+-------------
 The static images that show up on https://fightforthefuture.github.io/ifeelnaked
 are hard-coded into the page HTML. If you want to add some static images, you'll
 have to edit the code!
@@ -69,7 +69,8 @@ a lot of user images too.
      **This is wrong:** `<div class=“good”>`
 
 7. Save the file when you're done updating it. You can open and force reload the
-   file in Firefox to test your changes (note that fonts will render poorly.)
+   `index.html` file in Firefox to test your changes locally (note that fonts
+   will render poorly.)
 
 8. Once you're happy with your changes, go to the Github app and commit your
    changes. You'll have to enter a comment to describe the change you made,
