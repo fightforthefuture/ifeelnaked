@@ -25,7 +25,11 @@ table { border-collapse: collapse; border-spacing: 0; }
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
-
+html {
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+    height: 100%;
+}
 body {
     background: #e1e1e1;
     font-family: "ff-meta-serif-web-pro";
@@ -41,20 +45,27 @@ a:hover {
 }
 a.post {
     display: block;
-    position: absolute;
-    right: 0px;
-    top: 501px;
-    height: 85px;
-    line-height: 85px;
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    width: 250px;
+    margin-left: -125px;
+    height: 55px;
+    line-height: 55px;
+    border-top: 1px solid black;
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 1px;
     font-family: "Arial";
     padding: 0px 30px 0px 90px;
-    background: #ff4e52 url(../images/camera.png) 23px 23px no-repeat;
+    background: #ff4e52 url(../images/camera.png) 23px center no-repeat;
     color: white;
     z-index: 9001;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, .4);
+
+}
+a.post:hover {
+    background-color: #ef3e42;
 }
 strong { font-weight: bold; }
 section {
@@ -197,7 +208,7 @@ footer img {
     margin: 0px auto;
     display: inline-block;
     text-align: center;
-    background: #1c1c1c;
+    /*background: #1c1c1c;*/
     color: white;
     font-weight: bold;
     font-size: 13px;
@@ -504,6 +515,8 @@ footer img {
         height: 40px;
         line-height: 40px;
         width: 100%;
+        margin: 0px;
+        left: 0px;
         padding: 0px;
         text-align: center;
         background-position: 10px 7px;
@@ -515,47 +528,150 @@ footer img {
 
 }
 
-div.social-buttons {
-    height: 115px;
-    left: 0;
-    overflow: hidden;
-    position: fixed;
-    top: calc((100% - 115px) / 2);
-    width: 110px;
-}
 
-@media screen and (max-width: 1280px) {
-    div.social-buttons {
-        width: 33px;
-    }
-}
-
-div.social-buttons a {
-    background-repeat: no-repeat;
-    display: block;
-    height: 33px;
-    font-family: Arial, sans-serif;
-    color: white;
-    line-height: 33px;
-    margin: 0 0 8px;
-    padding: 0 0 0 42px;
-    text-decoration: none;
-    width: 100%;
-}
-
-div.social-buttons a.facebook {
-    background-color: #39579a;
-    background-image: url(../images/social/icon-fb.gif);
-}
-
-div.social-buttons a.twitter {
-    background-color: #02aced;
-    background-image: url(../images/social/icon-twitter.gif);
-}
-
-div.social-buttons a.email {
-    background-color: #14ac2b;
-    background-image: url(../images/social/icon-email.gif);
-}
 
 #static_images { display: none; }
+
+div.action_bar {
+    border-top: 1px solid #777;
+    border-bottom: 1px solid #d4d4d4;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    background: white;
+    z-index: 9001;
+}
+div.action_bar .fftf {
+    display: block;
+    width: 258px;
+    height: 33px;
+    background-image: url(../images/site/logo.png);
+    background-position: left bottom;
+}
+div.action_bar .donate {
+    margin-top: 2px;
+    margin-right: 5px;
+    float: right;
+    display: block;
+    padding: 0px 10px 0px 10px;
+    border: 1px solid #c4a63a;
+    height: 30px;
+    box-sizing: border-box;
+    line-height: 27px;
+    font-family: Arial;
+    color: #4d3a0b;
+    text-decoration: none;
+    border-radius: 3px;
+    background: #fadb62; /* Old browsers */
+    background: -moz-linear-gradient(top, #fadb62 0%, #d1b243 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fadb62), color-stop(100%,#d1b243)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #fadb62 0%,#d1b243 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #fadb62 0%,#d1b243 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #fadb62 0%,#d1b243 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #fadb62 0%,#d1b243 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fadb62', endColorstr='#d1b243',GradientType=0 ); /* IE6-9 */
+}
+div.action_bar a.social {
+    float: right;
+    margin-top: 2px;
+    font-family: Arial;
+}
+a.social {
+    margin-left: 5px;
+    margin-right: 5px;
+    display: inline-block;
+    padding: 0px 10px 0px 40px;
+    height: 30px;
+    line-height: 27px;
+    position: relative;
+    box-sizing: border-box;
+    color: white;
+    text-decoration: none;
+    border-radius: 3px;
+    text-shadow: 0px -1px 0px transparent, 0px -1px 0px rgba(5, 5, 5, 0.4);
+}
+
+a.social::before {
+    width: 20px;
+    height: 20px;
+    display: block;
+    background: transparent url("https://s3.amazonaws.com/fftf-cms/static/campaign/img/share.png") no-repeat scroll 0px 0px / 170px 20px;
+    position: absolute;
+    top: 4px;
+    left: 8px;
+    content: "";
+}
+a.social.facebook {
+    border: 1px solid #3b5898;
+    background: #4064ac; /* Old browsers */
+    background: -moz-linear-gradient(top, #4064ac 0%, #30497d 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4064ac), color-stop(100%,#30497d)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #4064ac 0%,#30497d 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #4064ac 0%,#30497d 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #4064ac 0%,#30497d 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #4064ac 0%,#30497d 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4064ac', endColorstr='#30497d',GradientType=0 ); /* IE6-9 */
+}
+a.social.twitter {
+    border: 1px solid #0898cc;
+    background: #01caf9; /* Old browsers */
+    background: -moz-linear-gradient(top, #01caf9 0%, #0898cc 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#01caf9), color-stop(100%,#0898cc)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #01caf9 0%,#0898cc 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #01caf9 0%,#0898cc 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #01caf9 0%,#0898cc 100%); /* IE10+ */
+    background: linear-gradient(to bottom, #01caf9 0%,#0898cc 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01caf9', endColorstr='#0898cc',GradientType=0 ); /* IE6-9 */
+}
+div.action_bar .donate:hover {
+    background: #dfbe46;
+}
+div.action_bar .social.facebook:hover {
+    background: #3b5898;
+    text-shadow: none;
+}
+div.action_bar .social.twitter:hover {
+    background: #0898cc;
+    text-shadow: none;
+}
+.social.facebook::before {
+    background-position: -150px 0px;
+}
+.social.twitter::before {
+    background-position: -100px 0px;
+}
+
+@media only screen and (max-width: 767px) {
+    div.action_bar {
+        padding: 10px 10px;
+        position: static;
+    }
+    div.action_bar .donate {
+        margin-top: 2px;
+        margin-right: 0px;
+        padding: 0px 2px;
+        font-size: .9em;
+    }
+    div.action_bar .social {
+        margin-top: 0px;
+        margin-right: 0px;
+        padding-right: 0px;
+    }
+    div.action_bar .social em {
+        display: none;
+    }
+    div.action_bar .social::before {
+        left: 10px;
+    }
+    div.action_bar .fftf {
+        display: block;
+        width: 129px;
+        height: 17px;
+        background-image: url(https://s3.amazonaws.com/fftf-cms/static/campaign/img/logo.png);
+        background-position: left top;
+        margin: 6px 0px;
+    }
+}

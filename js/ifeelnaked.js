@@ -1,3 +1,8 @@
+var trackOptimizely = function(ev) {
+    window['optimizely'] = window['optimizely'] || [];
+    window.optimizely.push(["trackEvent", ev]);
+}
+
 $(function() { /////////////////////////////////////////////////////////////////
 
 var STATIC_PHOTO_DENSITY = 10;
@@ -12,6 +17,7 @@ var container = $('#photos').isotope({
     masonry: {
         columnWidth: 160
     },
+    transitionDuration: 0
 });
 
 var addItem = function(item) {
@@ -207,5 +213,32 @@ document.querySelector('a.participate').addEventListener('click', function(e) {
     e.preventDefault();
     show_modal("participate_modal");
 });
+
+var dn = document.querySelectorAll('a.donate');
+for (var i = 0; i < dn.length; i++) {
+    dn[i].addEventListener('click', function(e) {
+        e.preventDefault();
+        trackOptimizely('donate');
+        window.open('https://donate.fightforthefuture.org/?tag='+DONATE_TAG);
+    }, false);
+}
+
+var fb = document.querySelectorAll('a.facebook');
+for (var i = 0; i < fb.length; i++) {
+    fb[i].addEventListener('click', function(e) {
+        e.preventDefault();
+        trackOptimizely('share');
+        window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.ifeelnaked.org%2F');
+    }, false);
+}
+
+var tws = document.querySelectorAll('a.twitter');
+for (var i = 0; i < tws.length; i++) {
+    tws[i].addEventListener('click', function(e) {
+        e.preventDefault();
+        trackOptimizely('share');
+        window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(TWEET_TEXT));
+    }, false);
+}
 
 }); ////////////////////////////////////////////////////////////////////////////
