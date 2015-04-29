@@ -565,7 +565,7 @@ div.action_bar {
     width: 100%;
     background: #323b58;
     z-index: 9001;
-    margin-bottom: -55px;
+    margin-bottom: -56px;
     -webkit-transition: margin-bottom .5s ease-in;
         transition: margin-bottom .5s ease-in;
 }
@@ -680,5 +680,21 @@ div.action_bar .social.twitter:hover {
         background-image: url(../images/site/logo.png);
         background-position: left top;
         margin: 8px 0px;
+    }
+}
+
+.action_bar .font_credit {
+    position: absolute;
+    right: 10px;
+    top: -25px;
+    color: #888;
+    font-size: 14px;
+}
+.action_bar .font_credit a {
+    color: #515151;
+}
+@media only screen and (max-width: 1205px) {
+    .action_bar .font_credit {
+        display: none;
     }
 }
