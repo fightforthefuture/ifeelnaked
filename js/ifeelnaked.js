@@ -158,7 +158,7 @@ var showModal = function(item) {
     setTimeout(function() { overlay.className = 'overlay'; }, 50);
 }
 
-$.ajax('http://ifeelnaked-api.herokuapp.com/random/50', {
+$.ajax('https://ifeelnaked-api.herokuapp.com/random/50', {
     success: function(data) {
         addItems(data)
     }
