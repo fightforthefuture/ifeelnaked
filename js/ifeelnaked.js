@@ -43,7 +43,10 @@ var addItem = function(item) {
             div.className = 'element-item black_and_white';
         div.id = item.username+'_'+item._id;
         div.style.backgroundImage = 'url('+item.photo_url_s3+')';
-        div.style.backgroundSize = '100% 100%';
+        div.style.backgroundSize = 'auto 100%';
+        div.style.backgroundRepeat = 'no-repeat';
+        div.style.backgroundPosition = 'center center';
+        div.style.backgroundColor = '#333';
 
         var caption = document.createElement('div');
         caption.className = 'label';
