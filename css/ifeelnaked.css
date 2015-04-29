@@ -48,21 +48,40 @@ a.post {
     position: fixed;
     bottom: 0px;
     left: 50%;
-    width: 250px;
-    margin-left: -125px;
-    height: 55px;
-    line-height: 55px;
-    border-top: 1px solid black;
+    width: 280px;
+    margin-left: -140px;
+    height: 90px;
+    line-height: 80px;
+    border-top: 1px solid #a23437;
     text-transform: uppercase;
     text-decoration: none;
     letter-spacing: 1px;
     font-family: "Arial";
-    padding: 0px 30px 0px 90px;
-    background: #ff4e52 url(../images/camera.png) 23px center no-repeat;
+    padding: 0px 30px 0px 105px;
+    background: #ff4e52 url(../images/camera.png) 35px 19px no-repeat;
     color: white;
     z-index: 9001;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, .4);
-
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    -webkit-transition: height 0.1s linear;
+            transition: height 0.1s linear;
+}
+a.post > div {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    width: 100%;
+    line-height: 10px;
+    letter-spacing: 0px;
+    font-size: 10px;
+    background: #df3f43;
+    text-align: center;
+    padding: 4px 0px;
 }
 a.post:hover {
     background-color: #ef3e42;
@@ -288,6 +307,7 @@ footer img {
     position: relative;
     width: 320px;
     height: 320px;
+    background-color: white;
     -webkit-border-top-right-radius: 10px;
     -moz-border-radius-topright: 10px;
     border-top-right-radius: 10px;
@@ -524,6 +544,10 @@ footer img {
         position: fixed;
         bottom: 0px;
         top: auto;
+        border-radius: 0px;
+    }
+    a.post > div {
+        display: none;
     }
 
 }
@@ -533,16 +557,20 @@ footer img {
 #static_images { display: none; }
 
 div.action_bar {
-    border-top: 1px solid #777;
-    border-bottom: 1px solid #d4d4d4;
     padding: 10px 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
     box-sizing: border-box;
     position: fixed;
     bottom: 0px;
     width: 100%;
-    background: white;
+    background: #323b58;
     z-index: 9001;
+    margin-bottom: -55px;
+    -webkit-transition: margin-bottom .5s ease-in;
+        transition: margin-bottom .5s ease-in;
+}
+div.action_bar.visible {
+    margin-bottom: 0px;
 }
 div.action_bar .fftf {
     display: block;
@@ -556,23 +584,17 @@ div.action_bar .donate {
     margin-right: 5px;
     float: right;
     display: block;
-    padding: 0px 10px 0px 10px;
-    border: 1px solid #c4a63a;
+    padding: 0px 15px 0px 15px;
     height: 30px;
     box-sizing: border-box;
-    line-height: 27px;
+    line-height: 30px;
     font-family: Arial;
-    color: #4d3a0b;
+    font-size: 14px;
+    color: white;
+    text-transform: uppercase;
     text-decoration: none;
-    border-radius: 3px;
-    background: #fadb62; /* Old browsers */
-    background: -moz-linear-gradient(top, #fadb62 0%, #d1b243 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fadb62), color-stop(100%,#d1b243)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #fadb62 0%,#d1b243 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #fadb62 0%,#d1b243 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #fadb62 0%,#d1b243 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #fadb62 0%,#d1b243 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fadb62', endColorstr='#d1b243',GradientType=0 ); /* IE6-9 */
+    border-radius: 100px;
+    background: #515f89;
 }
 div.action_bar a.social {
     float: right;
@@ -583,15 +605,16 @@ a.social {
     margin-left: 5px;
     margin-right: 5px;
     display: inline-block;
-    padding: 0px 10px 0px 40px;
+    padding: 0px 15px 0px 40px;
     height: 30px;
-    line-height: 27px;
+    line-height: 30px;
     position: relative;
     box-sizing: border-box;
     color: white;
     text-decoration: none;
-    border-radius: 3px;
-    text-shadow: 0px -1px 0px transparent, 0px -1px 0px rgba(5, 5, 5, 0.4);
+    border-radius: 100px;
+    font-size: 14px;
+    text-transform: uppercase;
 }
 
 a.social::before {
@@ -601,41 +624,24 @@ a.social::before {
     background: transparent url("https://s3.amazonaws.com/fftf-cms/static/campaign/img/share.png") no-repeat scroll 0px 0px / 170px 20px;
     position: absolute;
     top: 4px;
-    left: 8px;
+    left: 14px;
     content: "";
 }
 a.social.facebook {
-    border: 1px solid #3b5898;
-    background: #4064ac; /* Old browsers */
-    background: -moz-linear-gradient(top, #4064ac 0%, #30497d 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4064ac), color-stop(100%,#30497d)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #4064ac 0%,#30497d 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #4064ac 0%,#30497d 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #4064ac 0%,#30497d 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #4064ac 0%,#30497d 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4064ac', endColorstr='#30497d',GradientType=0 ); /* IE6-9 */
+    background: #3b5a95;
 }
 a.social.twitter {
-    border: 1px solid #0898cc;
-    background: #01caf9; /* Old browsers */
-    background: -moz-linear-gradient(top, #01caf9 0%, #0898cc 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#01caf9), color-stop(100%,#0898cc)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, #01caf9 0%,#0898cc 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, #01caf9 0%,#0898cc 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top, #01caf9 0%,#0898cc 100%); /* IE10+ */
-    background: linear-gradient(to bottom, #01caf9 0%,#0898cc 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#01caf9', endColorstr='#0898cc',GradientType=0 ); /* IE6-9 */
+    background: #51c9f0;
+
 }
 div.action_bar .donate:hover {
-    background: #dfbe46;
+    background: #414f79;
 }
 div.action_bar .social.facebook:hover {
-    background: #3b5898;
-    text-shadow: none;
+    background: #2b4a85;
 }
 div.action_bar .social.twitter:hover {
-    background: #0898cc;
-    text-shadow: none;
+    background: #41b9e0;
 }
 .social.facebook::before {
     background-position: -150px 0px;
@@ -647,12 +653,13 @@ div.action_bar .social.twitter:hover {
 @media only screen and (max-width: 767px) {
     div.action_bar {
         padding: 10px 10px;
+        margin: 0px;
         position: static;
     }
     div.action_bar .donate {
         margin-top: 2px;
         margin-right: 0px;
-        padding: 0px 2px;
+        padding: 0px 6px;
         font-size: .9em;
     }
     div.action_bar .social {
@@ -670,8 +677,8 @@ div.action_bar .social.twitter:hover {
         display: block;
         width: 129px;
         height: 17px;
-        background-image: url(https://s3.amazonaws.com/fftf-cms/static/campaign/img/logo.png);
+        background-image: url(../images/site/logo.png);
         background-position: left top;
-        margin: 6px 0px;
+        margin: 8px 0px;
     }
 }

@@ -2,8 +2,17 @@ var trackOptimizely = function(ev) {
     window['optimizely'] = window['optimizely'] || [];
     window.optimizely.push(["trackEvent", ev]);
 }
+var action_bar_visible = false;
 
 $(function() { /////////////////////////////////////////////////////////////////
+
+
+$(window).scroll(function() {
+    if (action_bar_visible)
+        return;
+    $( ".action_bar" ).addClass('visible');
+    action_bar_visible = 1;
+});
 
 var STATIC_PHOTO_DENSITY = 10;
 
@@ -79,7 +88,7 @@ var showModal = function(item) {
     
     var img = document.createElement('div');
     img.className = 'photo';
-    img.style.background = 'url('+item.photo_url_s3+') center center no-repeat';
+    img.style.background = 'white url('+item.photo_url_s3+') center center no-repeat';
     img.style.backgroundSize = 'auto 100%';
     modal.appendChild(img);
 
@@ -143,7 +152,7 @@ var showModal = function(item) {
     setTimeout(function() { overlay.className = 'overlay'; }, 50);
 }
 
-$.ajax('http://ifeelnaked-api.herokuapp.com/random/30', {
+$.ajax('http://ifeelnaked-api.herokuapp.com/random/50', {
     success: function(data) {
         addItems(data)
     }
