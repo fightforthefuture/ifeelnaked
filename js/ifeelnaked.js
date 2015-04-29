@@ -7,11 +7,14 @@ var action_bar_visible = false;
 $(function() { /////////////////////////////////////////////////////////////////
 
 
-$(window).scroll(function() {
+$(window).scroll(function(e) {
     if (action_bar_visible)
         return;
-    $( ".action_bar" ).addClass('visible');
-    action_bar_visible = 1;
+    if ($(window).scrollTop() > 500) {
+        $( ".action_bar" ).addClass('visible');
+        $( "a.post" ).addClass('visible');
+        action_bar_visible = true;
+    }
 });
 
 var STATIC_PHOTO_DENSITY = 10;
