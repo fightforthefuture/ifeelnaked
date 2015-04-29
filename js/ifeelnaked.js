@@ -45,7 +45,7 @@ var addItem = function(item) {
         else
             div.className = 'element-item black_and_white';
         div.id = item.username+'_'+item._id;
-        div.style.backgroundImage = 'url('+item.photo_url_s3+')';
+        div.style.backgroundImage = 'url('+item.photo_url_s3.replace('http:', 'https:')+')';
         div.style.backgroundSize = 'auto 100%';
         div.style.backgroundRepeat = 'no-repeat';
         div.style.backgroundPosition = 'center center';
@@ -73,7 +73,7 @@ var addItem = function(item) {
 
         processed++;
     }
-    img.src = item.photo_url_s3;
+    img.src = item.photo_url_s3.replace('http:', 'https:');
 }
 
 var addItems = function(items) {
@@ -94,7 +94,7 @@ var showModal = function(item) {
     
     var img = document.createElement('div');
     img.className = 'photo';
-    img.style.background = 'white url('+item.photo_url_s3+') center center no-repeat';
+    img.style.background = 'white url('+item.photo_url_s3.replace('http:', 'https:')+') center center no-repeat';
     img.style.backgroundSize = 'auto 100%';
     modal.appendChild(img);
 
