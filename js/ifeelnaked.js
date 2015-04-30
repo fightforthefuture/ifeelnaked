@@ -228,7 +228,7 @@ document.querySelector('a.participate').addEventListener('click', function(e) {
     e.preventDefault();
     show_modal("participate_modal");
 });
-if (window.location.hash == '#participate')
+if (window.location.href.indexOf('participate=1') != -1)
     show_modal("participate_modal");
 
 var dn = document.querySelectorAll('a.donate');
