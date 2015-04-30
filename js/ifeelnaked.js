@@ -228,6 +228,8 @@ document.querySelector('a.participate').addEventListener('click', function(e) {
     e.preventDefault();
     show_modal("participate_modal");
 });
+if (window.location.hash == '#participate')
+    show_modal("participate_modal");
 
 var dn = document.querySelectorAll('a.donate');
 for (var i = 0; i < dn.length; i++) {
