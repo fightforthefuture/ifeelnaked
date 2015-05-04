@@ -186,7 +186,7 @@ var showModal = function(item) {
 var doLoad = function() {
     $.ajax('https://ifeelnaked-api.herokuapp.com/random/60', {
         success: function(data) {
-            loading_more = false;
+            setTimeout(function(){ loading_more = false; }, 500); // not so fast
             photos_initially_loaded = true;
             addItems(data)
         }
