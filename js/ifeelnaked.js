@@ -64,6 +64,9 @@ var addItem = function(item) {
 
     var img = new Image();
     img.onload = function() {
+        if (document.getElementById(item.username+'_'+item._id))
+            return;
+
         var div = document.createElement('div');
         if (item.priority > 0)
             div.className = 'element-item black_and_white big';
