@@ -702,3 +702,7 @@ div.action_bar .social.twitter:hover {
         display: none;
     }
 }
+#load_more {
+    color: gray;
+    text-align: center;
+}

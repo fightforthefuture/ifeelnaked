@@ -3,17 +3,42 @@ var trackOptimizely = function(ev) {
     window.optimizely.push(["trackEvent", ev]);
 }
 var action_bar_visible = false;
+var loading_more = false;
+var photos_initially_loaded = false;
 
 $(function() { /////////////////////////////////////////////////////////////////
 
+var isScrolledIntoView = function(elem)
+{
+    var $elem = $(elem);
+    var $window = $(window);
+
+    var docViewTop = $window.scrollTop();
+    var docViewBottom = docViewTop + $window.height();
+
+    var elemTop = $elem.offset().top;
+    var elemBottom = elemTop + $elem.height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+var doLoadMore = function() {
+    if (loading_more || photos_initially_loaded == false)
+        return;
+
+    console.log('loading more!');
+    loading_more = true;
+    doLoad();
+
+}
 
 $(window).scroll(function(e) {
-    if (action_bar_visible)
-        return;
-    if ($(window).scrollTop() > 500) {
+    if ($(window).scrollTop() > 500 && !action_bar_visible) {
         $( ".action_bar" ).addClass('visible');
         $( "a.post" ).addClass('visible');
         action_bar_visible = true;
+    }
+    if (isScrolledIntoView('#load_more')) {
+        doLoadMore();
     }
 });
 
@@ -158,11 +183,16 @@ var showModal = function(item) {
     setTimeout(function() { overlay.className = 'overlay'; }, 50);
 }
 
-$.ajax('https://ifeelnaked-api.herokuapp.com/random/60', {
-    success: function(data) {
-        addItems(data)
-    }
-});
+var doLoad = function() {
+    $.ajax('https://ifeelnaked-api.herokuapp.com/random/60', {
+        success: function(data) {
+            loading_more = false;
+            photos_initially_loaded = true;
+            addItems(data)
+        }
+    });
+}
+doLoad();
 
 var addStatic = function() {
     console.log('adding static: ', processed);
