@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-
+<script type="text/javascript">var _sf_startpt=(new Date()).getTime()</script>
+<script src="//cdn.optimizely.com/js/2872130080.js"></script>
 <meta charset="utf-8">
 <title>I feel naked.</title>
-<link rel="stylesheet" type="text/css" href="css/ifeelnaked.css"/>
+<link rel="stylesheet" type="text/css" href="/static/css/ifeelnaked.new.css"/>
 <link rel="icon" type="image/png" href="https://s3.amazonaws.com/fftf-cms/static/img/fav.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="//use.typekit.net/uhq3btm.js"></script>
 <script>try{Typekit.load();}catch(e){}</script>
 <meta property="og:title" content="I feel naked."/>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://www.ifeelnaked.org"/>
-<meta property="og:image" content="https://www.ifeelnaked.org/images/share_img.png"/>
+<meta property="og:image" content="{{ FB_IMAGE_URL }}"/>
 <meta property="og:site_name" content="I feel naked."/>
 <meta property="fb:admins" content="612663871"/>
 <meta property="og:description" content="I should never, ever have to worry the government is watching my private moments."/>
 
 <script type="text/javascript">
+    BLACK_AND_WHITE = false;
+    LOAD_PHOTO = '{{ LOAD_PHOTO }}';
+    TAG        = 'ifeelnaked';
     DONATE_TAG = 'ifeelnaked';
-    TWEET_TEXT = 'Dear Congress: do you and the NSA get off looking at our private photos? #ifeelnaked ifeelnaked.com';
+    CALL_TAG   = 'ifeelnaked';
+    EMAIL_SUBJ = 'Please oppose the USA FREEDOM Act and end mass surveillance.'
+    TWEET_TEXT = 'Dear Congress: do you and the NSA get off looking at our private photos? #ifeelnaked';
+    TWEET_URL  = 'ifeelnaked.org';
+    SITE_URL   = 'https://www.ifeelnaked.org';
 </script>
 
 </head>
-<body>
+<body class="dark">
+
+<div id="flash"></div>
+<div id="loader" class="invisible">
+    <div class="loading">
+        <div class="dot"></div>
+        <div class="dot2"></div>
+    </div>
+</div>
+<form style="display:none;"><input type="file" id="file" accept="image/*;capture=camera"/></form>
 
 <div class="action_bar">
     <div class="font_credit">Font by <a href="https://www.behance.net/anastasiamastrakouli" target="_blank">Anastasia Mastrakouli</a></div>
@@ -34,49 +50,56 @@
 </div>
 
 <section id="top">
-    <img src="images/logo.png"/>
+    <div id="logo"><img src="/static/images/logo.small.png"/></div>
     <p>
-        <strong>And I shouldn't.</strong> <strong>Unconstitutional government surveillance has to stop.</strong>  Our private moments belong to us. We should never, ever have to worry the government is watching. Yet every hour that passes, the NSA is collecting and reviewing our lives. And, <strong>in a matter of days</strong>, Congress will decide to make mass surveillance the law or stop it, determining the future of free speech and our democracy.  We're asking you to do something that has the power to decide what happens -- post to #IFEELNAKED to make Congress ashamed that they’re watching us. We'll <a href="https://www.blackoutcongress.org" target="_blank">show</a> these photos to Congress to demand they stop watching us.
-        <br/>
-        <strong><a href="#participate" class="participate">Join us by posting your photos.</a></strong>
+        <strong>I feel naked, and I shouldn't.</strong>
+        Unconstitutional government surveillance has to stop.
+
+        Our private moments belong to us. We should never, ever have to worry the
+        government is watching. Yet every hour that passes, the NSA is collecting
+        and reviewing our lives. And, <strong>in a matter of days</strong>, Congress
+        will decide to make mass surveillance the law or stop it, determining the
+        future of free speech and our democracy. We're asking you to do something
+        that has the power to decide what happens &mdash; post to #IFEELNAKED to
+        make Congress ashamed that they’re watching us.
+        We'll <a href="https://www.blackoutcongress.org" target="_blank">show</a>
+        these photos to Congress before that vote and demand they stop.
+        <strong><a href="#participate" class="participate">Join us by posting your photos.</strong></a>
     </p>
 </section>
 
-<a class="post" href="#participate">Share yours<div>By May 22, we'll present these to Congress.</div></a>
-<div id="photos" class="isotope"></div>
-<div id="load_more">&nbsp;</div>
+<div id="fake_modal">
+    <h2>#IFEELNAKED</h2>
+    <p>
+        <strong>NSA spying makes us feel violated.</strong> It’s like a strip
+        search, online. We are holding Congress accountable for enacting mass
+        surveillance into law. Join the protest.
+    </p>
+    <a class="cant" href="#">Can't add a photo? <strong>Contact Congress<span> instead</span>.</strong></a>
+</div>
 
-<!--
-<section id="participate">
-    <h2>How to Participate</h2>
-    <a href="https://instagram.com" class="social_logo" target="_blank"><img src="images/instagram_b.png"/></a>
-    <a href="https://twitter.com" class="social_logo" target="_blank"><img src="images/twitter_b.png"/></a>
-    <a href="https://facebook.com" class="social_logo" target="_blank"><img class="social_logo" src="images/facebook_b.png"/></a>
-    <p>
-        <strong>Step 1:</strong> Post a personal photo (anything Congress should be ashamed of spying on) to
-        <a href="https://twitter.com" target="_blank">Twitter</a> or
-        <a href="https://instagram.com" target="_blank">Instagram</a>.
-    </p>
-    <p>
-        <strong>Step 2:</strong> Be sure to include the #IFEELNAKED hashtag and
-        a link back to this site.<br/>Here's an example post, but feel free to be
-        creative!
-    </p>
-<blockquote>Dear Congress: do you and the NSA get off looking at our private photos? #ifeelnaked ifeelnaked.com</blockquote>
-    <h3>For Website owners:</h3>
-    <p>
-        If you have a website, blog or tumblr, you can join in the Congress
-        Blackout. On May 15, two weeks before the PATRIOT Act is up for renewal,
-        anyone browsing your site from Congress or the NSA will be redirected
-        to our photos. To participate, just embed this code before the closing
-        &lt;/BODY&gt; tag on your page:
-    </p>
-    <blockquote>&lt;script src="https://fightforthefuture.github.io/ifeelnaked.js/ifeelnaked.js">&lt;/script></blockquote>
-</section>
--->
-<footer>
-    <!--<a href="https://www.fightforthefuture.org" target="_blank"><img src="images/fftf_logo.png"></a>-->
-</footer>
+<a class="post" href="#participate"><div></div>Add your photo</a>
+<a class="postBottom" href="#participate">Share yours<div>We'll show your photo to Congress.</div></a>
+<div id="photos"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+<div id="load_more">
+    <a href="#" class="moar">Load more...</a>
+    <div class="spinner_container" id="spinner" style="display: none;">
+        <div class="spinner">
+            <div class="blade d01"><div></div></div>
+            <div class="blade d02"><div></div></div>
+            <div class="blade d03"><div></div></div>
+            <div class="blade d04"><div></div></div>
+            <div class="blade d05"><div></div></div>
+            <div class="blade d06"><div></div></div>
+            <div class="blade d07"><div></div></div>
+            <div class="blade d08"><div></div></div>
+            <div class="blade d09"><div></div></div>
+            <div class="blade d10"><div></div></div>
+            <div class="blade d11"><div></div></div>
+            <div class="blade d12"><div></div></div>
+        </div>
+    </div>
+</div>
 
 
 <div class="overlay invisible" id="participate_modal">
@@ -84,17 +107,67 @@
         <div class="modal">
             <a class="close lite"></a>
             <div class="explanation">
+                <img src="/static/images/tiff.png" class="example"/>
                 <p>
-                    To protest Congress' invasion of our privacy, post a photo of yourself with no shirt on from the chest up <strong>right now,</strong>
-                    (or grab a photo of an intimate moment Congress should be ashamed of looking at) to
-                    <strong>Twitter</strong> or <strong>Instagram</strong> or Facebook, with the hashtag
-                    <strong class="highlight">#ifeelnaked</strong> and the site <strong class="highlight">ifeelnaked.org</strong> <strong>(not .com)</strong>,
-                    and tag your friends.
+                    <strong>Join</strong> <strong class="highlight">#IFEELNAKED</strong>. To protest Congress' invasion of our privacy, take your shirt off and
+                    take a pic. You can snap a photo using this site, or
+                    <a href="#" class="manual">post it yourself</a>
+                    on your favorite social network.
+
+                </p>
+                <div class="example">
+
+                    <button id="choose_file" class="gray">Choose a file</button>
+                    <button id="use_webcam">Use my webcam</button>
+                    <button id="manual" class="gray">Use Instagram</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="overlay invisible" id="webcam_modal">
+    <div class="gutter">
+        <div class="modal">
+            <a class="close lite"></a>
+            <div class="explanation">
+                <div class="video_container">
+                    <video id="video">Video stream not available.</video>
+                    <div id="frame"></div>
+                </div>
+
+                <canvas id="canvas" style="display: none;"></canvas>
+                <img id="photo" style="display: none;">
+                <div class="example">
+
+                    <button id="startbutton">Take Photo</button>
+                    <button id="use" style="display: none;">Use Photo</button>
+                    <button id="retake" style="display: none;" class="gray">Retake Photo</button>
+                </div>
+                <audio preload="auto" id="shutter">
+                    <source src="/static/audio/photoShutter.mp3" type="audio/mpeg"/>
+                    <source src="/static/audio/photoShutter.ogg" type="audio/ogg"/>
+                </audio>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="overlay invisible" id="manual_modal">
+    <div class="gutter">
+        <div class="modal">
+            <a class="close lite"></a>
+            <div class="explanation">
+                <p>
+                    Post a photo of yourself with no shirt on from the chest up to
+                    <strong>Instagram</strong>, <strong>Twitter</strong> or <strong>Facebook</strong>, with hashtag
+                    <strong class="highlight">#ifeelnaked</strong> and the site <strong class="highlight">ifeelnaked.org</strong> <strong>(not .com)</strong>.
+                    Be sure to tag your friends!
                 </p>
 
                 <div class="example">
                     here's an example:
                     <div class="tweet">
+                        <img src="/static/images/tiff.png" class="thumbnail"/>
                         My <em>#ifeelnaked</em> photo to show how wrong govt surveillance is. Your turn: <em><span>ifeelnaked.org</span></em> <em>@tagyour_friends</em>
                         <div class="byline">
                             4:19 PM - 20 Apr 2015
@@ -107,48 +180,154 @@
         </div>
     </div>
 </div>
+<div class="overlay invisible" id="email_modal">
+    <div class="gutter">
+        <div class="modal">
+            <a class="close lite"></a>
+            <div class="explanation">
+                <p>
+                    <strong>Tell Congress: We demand *real* surveillance reform.</strong>
+                    <br/>
+                    Congress needs to overturn all
+                    authorities used to conduct mass surveillance and reign-in the NSA
+                    with meaningful reform.
+                    Enter your info and we'll send your letter to your lawmakers.
+                </p>
+                <div class="example">
+                    <form action="https://queue.fightforthefuture.org/submit" method="post"><input id="first_name" type="text" placeholder="Your name"/><input id="email" type="text" placeholder="Email"/><input id="street_address" type="text" placeholder="Street Address"/><input id="postcode" type="text" placeholder="Zip" class="right"/>
+                    <textarea id="action_comment">Congress has begun the work of reforming mass surveillance in the United States by passing the USA Freedom Act, but significant reform is still needed. Companies should not be granted immunity for sharing customer data with the NSA in violation of their own privacy agreements. The FBI should not be able to use counterterrorism resources to spy on peaceful political activists, as has happened with their surveillance of #BlackLivesMatter protestors, and their operation of a fleet of spy airplanes scooping up cell phone activity in U.S. metropolitan areas. Clearly, your work on surveillance reform is just beginning.
+
+Please overturn Executive Order 12333 and Section 702 of the Foreign Intelligence Surveillance Act. These laws have been abused by the government to engage in the unconstitutional mass surveillance of hundreds of millions of innocent civilians.
+
+Also, three representatives in the House have put forth amendments that would limit mass surveillance. Thomas Massie introduced an amendment that would prevent the government from weakening encryption standards. Ted Poe proposed an amendment to block the government from requiring companies to insert surveillance "backdoors" into their communications software. Jared Polis proposed an amendment to block the DEA from engaging in bulk collection under its subpoena authority. I urge you to support all of these efforts, and to take your own initiative to reign in the surveillance state.</textarea><button type="submit">Email Congress</button></form>
+                    <span class="disclaimer">
+                        We'll deliver your message to Congress.
+                        <a href="https://www.fightforthefuture.org">Fight for the Future</a>
+                        will email you with campaign updates. <a href="https://www.fightforthefuture.org/privacy">Privacy Policy</a>
+                    </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="overlay invisible" id="call_modal">
+    <div class="gutter">
+        <div class="modal">
+            <a class="close lite"></a>
+            <div class="explanation">
+                <p>
+                    <strong>Awesome! Now, can you call Congress?</strong><br/>
+                    Enter your phone number and we'll call your phone and connect
+                    you to your reps. We'll tell you what to say on the next step.
+                </p>
+                <div class="example">
+                    <form action="https://call-congress.fightforthefuture.org/submit" method="post">
+                        <input id="phone" class="long right" type="text" placeholder="555-555-5555"/>
+                        <button type="submit">Call Congress</button>
+                    </form>
+                    Can't call? Share this page!<br/>
+                    <a class="social facebook" href="#">Share</a>
+                    <a class="social twitter" href="#">Tweet</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="overlay invisible" id="calling_modal">
+    <div class="gutter">
+        <div class="modal">
+            <a class="close lite"></a>
+            <div class="explanation">
+                <p>
+                    <strong>We're calling your phone!</strong>
+                    <br/>
+                    Tell Congress to reform mass surveillance by overturning Section 702
+                    of FISA and Executive Order 12333. Tell them to oppose CISA, the
+                    Cyber Intelligence Sharing Act. All of these laws violate our
+                    privacy.
+                </p>
+                <div class="example">
+                    Please share this page!<br/>
+                    <a class="social facebook" href="#">Share</a>
+                    <a class="social twitter" href="#">Tweet</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- ///////////////////////////////////////////////////////////////////////////
- .M"""bgd MMP""MM""YMM   db   MMP""MM""YMM `7MMF' .g8"""bgd 
-,MI    "Y P'   MM   `7  ;MM:  P'   MM   `7   MM .dP'     `M 
-`MMb.          MM      ,V^MM.      MM        MM dM'       ` 
-  `YMMNq.      MM     ,M  `MM      MM        MM MM          
-.     `MM      MM     AbmmmqMA     MM        MM MM.         
-Mb     dM      MM    A'     VML    MM        MM `Mb.     ,' 
-P"Ybmmd"     .JMML..AMA.   .AMMA..JMML.    .JMML. `"bmmmd'  
+ .M"""bgd MMP""MM""YMM   db   MMP""MM""YMM `7MMF' .g8"""bgd
+,MI    "Y P'   MM   `7  ;MM:  P'   MM   `7   MM .dP'     `M
+`MMb.          MM      ,V^MM.      MM        MM dM'       `
+  `YMMNq.      MM     ,M  `MM      MM        MM MM
+.     `MM      MM     AbmmmqMA     MM        MM MM.
+Mb     dM      MM    A'     VML    MM        MM `Mb.     ,'
+P"Ybmmd"     .JMML..AMA.   .AMMA..JMML.    .JMML. `"bmmmd'
 
-`7MMF'`7MMM.     ,MMF'      db       .g8"""bgd `7MM"""YMM   .M"""bgd 
-  MM    MMMb    dPMM       ;MM:    .dP'     `M   MM    `7  ,MI    "Y 
-  MM    M YM   ,M MM      ,V^MM.   dM'       `   MM   d    `MMb.     
-  MM    M  Mb  M' MM     ,M  `MM   MM            MMmmMM      `YMMNq. 
-  MM    M  YM.P'  MM     AbmmmqMA  MM.    `7MMF' MM   Y  , .     `MM 
-  MM    M  `YM'   MM    A'     VML `Mb.     MM   MM     ,M Mb     dM 
-.JMML..JML. `'  .JMML..AMA.   .AMMA. `"bmmmdPY .JMMmmmmMMM P"Ybmmd"  
+`7MMF'`7MMM.     ,MMF'      db       .g8"""bgd `7MM"""YMM   .M"""bgd
+  MM    MMMb    dPMM       ;MM:    .dP'     `M   MM    `7  ,MI    "Y
+  MM    M YM   ,M MM      ,V^MM.   dM'       `   MM   d    `MMb.
+  MM    M  Mb  M' MM     ,M  `MM   MM            MMmmMM      `YMMNq.
+  MM    M  YM.P'  MM     AbmmmqMA  MM.    `7MMF' MM   Y  , .     `MM
+  MM    M  `YM'   MM    A'     VML `Mb.     MM   MM     ,M Mb     dM
+.JMML..JML. `'  .JMML..AMA.   .AMMA. `"bmmmdPY .JMMmmmmMMM P"Ybmmd"
 //////////////////////////////////////////////////////////////////////////// -->
 <div id="static_images">
 
-    <div class="evil">
-        <img src="images/people/feinstein.jpg" />
-        <a href="http://www.washingtonpost.com/blogs/the-switch/wp/2014/03/12/feinstein-doesnt-like-the-cia-spying-on-her-committee-but-shes-fine-with-nsa-bulk-data-collection/">Source</a>
+    <div class="brown">
+        <a href="https://www.endsurveillance.com/#s702">Source</a>
         <p>
-            Senator Feinstein doesn’t like the CIA spying on her committee. But she’s
-            fine with NSA bulk data collection. "It's called protecting America."
+            Edward Snowden's revelation of NSA phone
+            metadata spying was only
+            "the tip of the iceberg." The NSA
+            is secretly wire-tapping huge portions of the Internet, vaccuming up
+            the contents of millions of emails and text messages.
         </p>
     </div>
 
-    <div class="good">
-        <img src="images/people/aaron.jpg" />
+    <div class="blue">
+        <a href="https://www.endsurveillance.com/#cispa">Source</a>
+        <p>
+            Now, Congress is trying to pass a law called CISA that would allow
+            the NSA and FBI to collect peoples' private data from services like Facebook
+            and Gmail without a warrant.
+        </p>
+    </div>
+
+    <div class="white">
+        <a href="https://www.blackoutcongress.org">Source</a>
+        <p>
+            To protest mass surveillance laws, we're blacking out Congress' Internet
+            access, showing them only our #ifeelnaked photos until they stop spying on
+            us. Add your photo to join the protest!
+        </p>
+    </div>
+
+    <div class="evil top">
+        <img src="/static/images/people/feinstein.jpg" />
+        <a href="http://www.washingtonpost.com/blogs/the-switch/wp/2014/03/12/feinstein-doesnt-like-the-cia-spying-on-her-committee-but-shes-fine-with-nsa-bulk-data-collection/">Source</a>
+        <p>
+            Sen. Feinstein didn't like it when the CIA spied on the Senate. But she’s
+            fine with the NSA spying on millions of Americans. "It's called protecting America."
+        </p>
+    </div>
+
+    <div class="good top">
+        <img src="/static/images/people/aaron.jpg" />
         <a href="http://en.wikipedia.org/wiki/Aaron_Swartz">Source</a>
         <p>
-            "This was somebody who was pushed to the edge by what I think of as
-            a kind of bullying by our government." &mdash;Lawrence Lessig about 
-            Aaron Swartz
+            "[Aaron Swartz] was pushed to the edge by what I think of as
+            a kind of bullying by our government." &mdash;L. Lessig
         </p>
     </div>
 
 
 <div class="good">
-        <img src="images/people/mayfield.jpg" />
+        <img src="/static/images/people/mayfield.jpg" />
         <a href="http://america.aljazeera.com/opinions/2014/2/the-terrifying-surveillancecaseofbrandonmayfield.html">Source</a>
         <p>
              “I, myself, have dark memories of stifling paranoia, of being monitored, followed, watched, tracked." - Brandon Mayfield, Portland journalist wrongfully spied on and arrested for the 2004 Madrid bombings
@@ -168,7 +347,7 @@ P"Ybmmd"     .JMML..AMA.   .AMMA..JMML.    .JMML. `"bmmmd'
 
 
     <div class="evil">
-        <img src="images/people/clinton.png" />
+        <img src="/static/images/people/clinton.png" />
         <a href="http://www.theatlantic.com/politics/archive/2015/02/hillary-clintons-evasive-position-on-nsa-spying/386024/">Source</a>
         <p>
 "She cast votes that enabled the very NSA spying that many now regard as a betrayal." - The Atlantic on Hillary Clinton
@@ -176,7 +355,7 @@ P"Ybmmd"     .JMML..AMA.   .AMMA..JMML.    .JMML. `"bmmmd'
     </div>
 
     <div class="evil">
-        <img src="images/people/clapper.jpg" />
+        <img src="/static/images/people/clapper.jpg" />
         <a href="http://www.washingtonpost.com/blogs/fact-checker/post/james-clappers-least-untruthful-statement-to-the-senate/2013/06/11/e50677a8-d2d8-11e2-a73e-826d299ff459_blog.html">Source</a>
         <p>
 NSA Director James Clapper denied that the NSA collects any type of data at all on millions of Americans. When confronted for lying he said it was his "least untruthful" answer.
@@ -185,25 +364,25 @@ NSA Director James Clapper denied that the NSA collects any type of data at all 
 
 
 <div class="good">
-        <img src="images/people/shaoukun.png" />
+        <img src="/static/images/people/shaoukun.png" />
         <a href="http://www.ibtimes.com/china-censors-interview-anti-corruption-activist-who-alleged-he-was-framed-police-1867472">Source</a>
         <p>
-"I’m not afraid of dying, but I must protest against constant persecution I have been subjected to over the years." - Ou Shaoukun, Chinese anti-corruption activis who has been arrested and harassed by local police on numerous occasions
+"I’m not afraid of dying, but I must protest against constant persecution I have been subjected to over the years." - Ou Shaoukun, Chinese activist who has been arrested and harassed by local police on numerous occasions
         </p>
     </div>
 
 
 <div class="good">
-        <img src="images/people/judgeleon.jpg" />
+        <img src="/static/images/people/judgeleon.jpg" />
         <a href="http://www.theguardian.com/world/2013/dec/16/nsa-phone-surveillance-likely-unconstitutional-judge">Source</a>
         <p>
 “The government does not cite a single case in which analysis of the NSA’s bulk metadata collection actually stopped an imminent terrorist attack” - Federal Judge Leon Richard who called the scope of NSA spying program "almost Orwellian"        </p>
     </div>
 
- 
+
 
 <div class="good">
-        <img src="images/people/malkia.jpg" />
+        <img src="/static/images/people/malkia.jpg" />
         <a href="http://www.commondreams.org/views/2015/03/30/black-americas-state-surveillance
 ">Source</a>
         <p>
@@ -214,9 +393,37 @@ READ: "Black America's State of Surveillance"
 </div>
 <!-- /////////////////////////////////////////////////////////////////////// -->
 
-<script type="text/javascript" src="js/jquery-2.1.3.min.js"></script>
-<script type="text/javascript" src="js/isotope.pkgd.min.js"></script>
-<script type="text/javascript" src="js/ifeelnaked.js"></script>
 
+<script type="text/javascript" src="/static/js/jquery-2.1.3.min.js"></script>
+<script type="text/javascript" src="/static/js/ifeelnaked.new.js"></script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26576645-22', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script type="text/javascript">
+  var _sf_async_config = { uid: 47331, domain: 'ifeelnaked.org', useCanonical: true };
+  (function() {
+    function loadChartbeat() {
+      window._sf_endpt = (new Date()).getTime();
+      var e = document.createElement('script');
+      e.setAttribute('language', 'javascript');
+      e.setAttribute('type', 'text/javascript');
+      e.setAttribute('src','//static.chartbeat.com/js/chartbeat.js');
+      document.body.appendChild(e);
+    };
+    var oldonload = window.onload;
+    window.onload = (typeof window.onload != 'function') ?
+      loadChartbeat : function() { oldonload(); loadChartbeat(); };
+  })();
+</script>
+<!-- Archiving script -->
+<script src="https://www.fightforthefuture.org/js/history.js"></script>
 </body>
 </html>
